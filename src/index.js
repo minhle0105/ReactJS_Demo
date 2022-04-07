@@ -18,7 +18,8 @@ import reportWebVitals from './reportWebVitals';
 // }
 
 // JSX javascript syntax extension
-
+// props / state
+// hook --> useEffect, useState (basic) , useRef, React.memo (advanced)
 
 ReactDOM.render(
   <React.StrictMode>
