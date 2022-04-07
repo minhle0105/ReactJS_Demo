@@ -4,6 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// components --> 2 loai
+// class components va functional components
+
+// functional components
+
+// const sum = (a, b) => {
+//     return a + b;
+// }
+//
+// function sum2 (a, b) {
+//     return a + b;
+// }
+
+// JSX javascript syntax extension
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
