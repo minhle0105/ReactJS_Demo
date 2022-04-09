@@ -1,4 +1,4 @@
-const thetons = [
+export const thetons = [
     {
         id: 1,
         name: "Ton Bo",

@@ -1,38 +1,77 @@
 import './App.css';
 import {useState} from "react";
-import {TonTable} from "./TonTable";
 
 function App() {
 
     // html duoc return trong component luon phai co 1 html element outermost
+    const [tonList, setTonList] = useState([]);
+    const [id, setId] = useState('');
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
 
     // day 2: state / props
-    const [number, setNumber] = useState(0);
-    const [showTable, setShowTable] = useState(false);
 
-    const handleDecrease = () => {
-        setNumber(prevState => prevState - 1);
-    }
-
-    const handleIncrease = () => {
-        setNumber(prevState => prevState + 1);
-    }
-
-    const handleToggle = () => {
-        const newShowTable = !showTable;
-        setShowTable(newShowTable);
-    }
 
     const title = "COUNTER APP"
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(name);
+        console.log(age);
+        const newTon = {
+            id: parseInt(id),
+            name: name,
+            age: +age
+        };
+        const newTonList = [...tonList]
+        newTonList.push(newTon);
+        setTonList(newTonList);
+        setId('')
+        setName('')
+        setAge('')
+    }
 
     return (
         <div className="App">
             <h1>{title}</h1>
-            <button onClick={handleDecrease}>-</button>
-            <h2>{number}</h2>
-            <button onClick={handleIncrease}>+</button>
-            <button onClick={handleToggle}>{showTable ? "Hide" : "Show"}</button>
-            {showTable ? <TonTable/> : null}
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="id">Id</label>
+                <input id="id" type="number" value={id} onChange={(e) => {
+                    e.preventDefault();
+                    setId(e.target.value);
+                }}/>
+                <label htmlFor="name">Name</label>
+                <input id="name" type="text" value={name} onChange={(e) => {
+                    e.preventDefault()
+                    setName(e.target.value);
+                }}/>
+                <label htmlFor="age">Age</label>
+                <input id="age" type="number" value={age} onChange={(e) => {
+                    e.preventDefault();
+                    setAge(e.target.value)
+                }}/>
+                <button type="submit">Save Ton</button>
+            </form>
+            <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                </thead>
+                <tbody>
+                {tonList.map((ton, key) => {
+                    return (
+                        <tr key={key}>
+                            <td>{ton.id}</td>
+                            <td>{ton.name}</td>
+                            <td>{ton.age}</td>
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </table>
         </div>
     );
 }
