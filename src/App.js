@@ -11,11 +11,11 @@ function App() {
     const [showTable, setShowTable] = useState(false);
 
     const handleDecrease = () => {
-        setNumber(number - 1);
+        setNumber(prevState => prevState - 1);
     }
 
     const handleIncrease = () => {
-        setNumber(number + 1);
+        setNumber(prevState => prevState + 1);
     }
 
     const handleToggle = () => {
@@ -32,8 +32,9 @@ function App() {
             <h2>{number}</h2>
             <button onClick={handleIncrease}>+</button>
             <button onClick={handleToggle}>{showTable ? "Hide" : "Show"}</button>
-            {showTable ? <TonTable /> : null}
+            {showTable ? <TonTable/> : null}
         </div>
     );
 }
+
 export default App;
