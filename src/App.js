@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from "react";
+import {AddForm} from "./components/AddForm/AddForm";
 
 function App() {
 
@@ -11,6 +12,10 @@ function App() {
 
     // day 2: state / props
 
+    // day 3: props
+    // properties
+    // doi voi the HTML binh thuong thi minh co thuoc tinh. vi du, <img src="" alt=""/>
+    // object destructuring
 
     const title = "COUNTER APP"
 
@@ -40,17 +45,7 @@ function App() {
     return (
         <div className="App">
             <h1>{title}</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
-                <input id="name" type="text" value={name} onChange={(e) => {
-                    setName(e.target.value);
-                }}/>
-                <label htmlFor="age">Age</label>
-                <input id="age" type="number" value={age} onChange={(e) => {
-                    setAge(e.target.value)
-                }}/>
-                <button type="submit">Save Ton</button>
-            </form>
+            <AddForm dataName={name} setName={setName} age={age} setAge={setAge} handleSubmit={handleSubmit} />
             <table>
                 <thead>
                 <tr>
