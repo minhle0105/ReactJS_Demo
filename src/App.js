@@ -31,23 +31,22 @@ function App() {
         setAge('')
     }
 
+    const handleDelete = (i) => {
+        const newTonList = [...tonList];
+        newTonList.splice(i, 1);
+        setTonList(newTonList);
+    }
+
     return (
         <div className="App">
             <h1>{title}</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="id">Id</label>
-                <input id="id" type="number" value={id} onChange={(e) => {
-                    e.preventDefault();
-                    setId(e.target.value);
-                }}/>
                 <label htmlFor="name">Name</label>
                 <input id="name" type="text" value={name} onChange={(e) => {
-                    e.preventDefault()
                     setName(e.target.value);
                 }}/>
                 <label htmlFor="age">Age</label>
                 <input id="age" type="number" value={age} onChange={(e) => {
-                    e.preventDefault();
                     setAge(e.target.value)
                 }}/>
                 <button type="submit">Save Ton</button>
@@ -58,15 +57,20 @@ function App() {
                     <th>Id</th>
                     <th>Name</th>
                     <th>Age</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 {tonList.map((ton, key) => {
                     return (
                         <tr key={key}>
-                            <td>{ton.id}</td>
+                            <td>{key}</td>
                             <td>{ton.name}</td>
                             <td>{ton.age}</td>
+                            <td><button onClick={(e) => {
+                                e.preventDefault();
+                                handleDelete(key);
+                            }}>Delete</button></td>
                         </tr>
                     )
                 })}
