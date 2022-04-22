@@ -1,6 +1,7 @@
 import './App.css';
 import {useState} from "react";
 import {AddForm} from "./components/AddForm/AddForm";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
