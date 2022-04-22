@@ -20,6 +20,13 @@ import App from './App';
 // props / state
 // hook --> useEffect, useState (basic) , useRef, React.memo (advanced)
 
+
+
+// useEffect // vi du
+// delete 1 cai item --> main action
+// hien thi thong bao --> hieu ung phu
+
+
 ReactDOM.render(
     <React.StrictMode>
         <App/>

@@ -1,7 +1,8 @@
 import './App.css';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {AddForm} from "./components/AddForm/AddForm";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Swal from "sweetalert2";
 
 function App() {
 
@@ -20,10 +21,32 @@ function App() {
 
     const title = "COUNTER APP"
 
+    // useEffect --> 3 truong hop
+    // 1. ko co dependency --> not recommended
+    // 2. dependency empty
+    // 3. co dependency
+
+    // component lifecycle
+    // mount (duoc tao ra va day len render ra giao dien) --> update (khi duoc cap nhat) --> unmount (chuyen qua phan khac hoac tat ung dung --> component
+    // duoc go ra khoi giao dien)
+
+    // ton tai suot vong doi cua component
+    // luon o day de listen to any call --> execute
+    useEffect(() => {
+        showAlert();
+    }, [tonList])
+
+    const showAlert = () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Thanh cong',
+            showConfirmButton: false,
+            timer: 1000
+        }).then(r => {})
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(name);
-        console.log(age);
         const newTon = {
             id: parseInt(id),
             name: name,
