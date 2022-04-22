@@ -36,6 +36,10 @@ function App() {
         showAlert();
     }, [tonList])
 
+    useEffect(() => {
+        console.log(name)
+    }, [name])
+
     const showAlert = () => {
         Swal.fire({
             icon: 'success',

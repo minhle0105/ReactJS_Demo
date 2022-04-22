@@ -1,0 +1,15 @@
+Mình lưu data ở backend
+--> khi react app được chạy, việc đầu tiên là phải gọi backend lấy data để render
+
+useEffect ngay khi component được mount, useEffect sẽ gọi về backend lấy data
+
+
+// autocomplete --> input field la de nhap cai nguoi dung muon
+// moi lan nguoi dung nhap thi phai goi backend de check
+
+// const [userInput, setUserInput] = useState('')
+// input onChange((e) => {setInput(e.target.value)})
+
+// useEffect(() => {
+    callBackend();
+}, [userInput])
